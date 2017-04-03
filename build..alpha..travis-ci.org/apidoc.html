@@ -1,0 +1,239 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/addyosmani/psi#readme"
+
+    >psi (v3.0.0)</a>
+</h1>
+<h4>PageSpeed Insights with reporting</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.psi">module psi</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.psi.output">
+            function <span class="apidocSignatureSpan">psi.</span>output
+            <span class="apidocSignatureSpan">(url, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">psi.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.psi.utils">module psi.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.psi.utils.buffer">
+            function <span class="apidocSignatureSpan">psi.utils.</span>buffer
+            <span class="apidocSignatureSpan">(msg, length)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.psi.utils.labelize">
+            function <span class="apidocSignatureSpan">psi.utils.</span>labelize
+            <span class="apidocSignatureSpan">(label)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.psi.utils.scoreColor">
+            function <span class="apidocSignatureSpan">psi.utils.</span>scoreColor
+            <span class="apidocSignatureSpan">{{signature}}</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">psi.utils.</span>divider</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.psi" id="apidoc.module.psi">module psi</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.psi.output" id="apidoc.element.psi.output">
+        function <span class="apidocSignatureSpan">psi.</span>output
+        <span class="apidocSignatureSpan">(url, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">(url, opts) =&#x3e; psi(url, opts).then(data =&#x3e; output(handleOpts(url, opts), data))</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Get the PageSpeed Insights report
+psi(&#x27;theverge.com&#x27;).then(data =&#x3e; {
+console.log(data.ruleGroups.SPEED.score);
+console.log(data.pageStats);
+});
+
+// Output a formatted report to the terminal
+psi.<span class="apidocCodeKeywordSpan">output</span>(&#x27;theverge.com&#x27;).then(() =&#x3e; {
+console.log(&#x27;done&#x27;);
+});
+
+// Supply options to PSI and get back speed and usability scores
+psi(&#x27;theverge.com&#x27;, {nokey: &#x27;true&#x27;, strategy: &#x27;mobile&#x27;}).then(data =&#x3e; {
+console.log(&#x27;Speed score:&#x27;, data.ruleGroups.SPEED.score);
+console.log(&#x27;Usability score:&#x27;, data.ruleGroups.USABILITY.score);
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.psi.utils" id="apidoc.module.psi.utils">module psi.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.psi.utils.buffer" id="apidoc.element.psi.utils.buffer">
+        function <span class="apidocSignatureSpan">psi.utils.</span>buffer
+        <span class="apidocSignatureSpan">(msg, length)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">(msg, length) =&#x3e; {
+  let ret = &#x27;&#x27;;
+
+  if (length === undefined) {
+    length = 44;
+  }
+
+  length = length - msg.length - 1;
+
+  if (length &#x3e; 0) {
+    ret = &#x27; &#x27;.repeat(length);
+  }
+
+  return ret;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  color = score &#x3c; 21 ? chalk.red : color;
+  color = score &#x3e; 79 ? chalk.green : color;
+  return color;
+};
+
+exports.labelize = str =&#x3e; {
+  const label = humanizeTitleMap[str] || str;
+  return label + exports.<span class="apidocCodeKeywordSpan">buffer</span>(label) + chalk.grey(&#x27;| &#x27;);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.psi.utils.labelize" id="apidoc.element.psi.utils.labelize">
+        function <span class="apidocSignatureSpan">psi.utils.</span>labelize
+        <span class="apidocSignatureSpan">(label)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">str =&#x3e; {
+  const label = humanizeTitleMap[str] || str;
+  return label + exports.buffer(label) + chalk.grey(&#x27;| &#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.psi.utils.scoreColor" id="apidoc.element.psi.utils.scoreColor">
+        function <span class="apidocSignatureSpan">psi.utils.</span>scoreColor
+        <span class="apidocSignatureSpan">{{signature}}</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">score =&#x3e; {
+  let color = chalk.yellow;
+  color = score &#x3c; 21 ? chalk.red : color;
+  color = score &#x3e; 79 ? chalk.green : color;
+  return color;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
