@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/addyosmani/psi#readme"
-
-    >psi (v3.0.0)</a>
+    <a href="https://github.com/addyosmani/psi#readme">psi (v3.0.0)</a>
 </h1>
 <h4>PageSpeed Insights with reporting</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.psi">module psi</a><ol>
 
@@ -103,10 +96,10 @@
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">(url, opts) =&#x3e; {
-  return Promise.resolve().then(() =&#x3e; {
+    <li>description and source-code<pre class="apidocCodePre">(url, opts) =&gt; {
+  return Promise.resolve().then(() =&gt; {
     if (!url) {
-      throw new Error(&#x27;URL required&#x27;);
+      throw new Error('URL required');
     }
 
     return pagespeed(handleOpts(url, opts));
@@ -124,23 +117,23 @@
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">(url, opts) =&#x3e; psi(url, opts).then(data =&#x3e; output(handleOpts(url, opts), data))</pre></li>
+    <li>description and source-code<pre class="apidocCodePre">(url, opts) =&gt; psi(url, opts).then(data =&gt; output(handleOpts(url, opts), data))</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 // Get the PageSpeed Insights report
-psi(&#x27;theverge.com&#x27;).then(data =&#x3e; {
+psi('theverge.com').then(data =&gt; {
 console.log(data.ruleGroups.SPEED.score);
 console.log(data.pageStats);
 });
 
 // Output a formatted report to the terminal
-psi.<span class="apidocCodeKeywordSpan">output</span>(&#x27;theverge.com&#x27;).then(() =&#x3e; {
-console.log(&#x27;done&#x27;);
+psi.<span class="apidocCodeKeywordSpan">output</span>('theverge.com').then(() =&gt; {
+console.log('done');
 });
 
 // Supply options to PSI and get back speed and usability scores
-psi(&#x27;theverge.com&#x27;, {nokey: &#x27;true&#x27;, strategy: &#x27;mobile&#x27;}).then(data =&#x3e; {
-console.log(&#x27;Speed score:&#x27;, data.ruleGroups.SPEED.score);
-console.log(&#x27;Usability score:&#x27;, data.ruleGroups.USABILITY.score);
+psi('theverge.com', {nokey: 'true', strategy: 'mobile'}).then(data =&gt; {
+console.log('Speed score:', data.ruleGroups.SPEED.score);
+console.log('Usability score:', data.ruleGroups.USABILITY.score);
 ...</pre></li>
     </ul>
 
@@ -168,3 +161,4 @@ console.log(&#x27;Usability score:&#x27;, data.ruleGroups.USABILITY.score);
     ]
 </div>
 </div>
+</body></html>
